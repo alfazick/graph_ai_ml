@@ -39,6 +39,9 @@ neo4j/
 # Logs
 *.log
 
+# Poetry
+poetry.lock
+
 # OS
 .DS_Store
 Thumbs.db
