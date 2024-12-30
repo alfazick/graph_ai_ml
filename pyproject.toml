@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "arxiv-analysis"
+version = "0.1.0"
+description = "ArXiv statistics papers analysis"
+authors = ["Askar Nurbekov <nurbekoff@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+matplotlib = "^3.7.1"
+networkx = "^3.1"
+numpy = "^1.24.0"
+pandas = "^2.0.0"
+spacy = "^3.6.0"
+py2neo = "^2021.2.3"
+umap-learn = "^0.5.3"
+hdbscan = "^0.8.29"
+requests = "^2.32.3"
+python-dotenv = "^1.0.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
