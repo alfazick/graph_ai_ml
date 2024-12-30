@@ -1,0 +1,30 @@
+# Todo List for Graph Structure Implementation
+
+## Data Processing Tasks
+1. [ ] Load and parse the dataset of 50,000 statistics papers
+2. [ ] Extract key information from each paper:
+   - [ ] Document IDs
+   - [ ] Titles
+   - [ ] Abstract texts
+   - [ ] Category tags
+
+## Graph Building Tasks
+1. [ ] Implement first approach for graph construction
+   - [ ] Design graph structure
+   - [ ] Create adjacency matrix
+   - [ ] Serialize to NumPy array
+
+2. [ ] Implement second approach for graph construction
+   - [ ] Design alternative graph structure
+   - [ ] Create adjacency matrix
+   - [ ] Serialize to NumPy array
+
+## Validation Tasks
+1. [ ] Verify graph structures are correctly formed
+2. [ ] Test serialization/deserialization of NumPy arrays
+3. [ ] Document the approaches and implementation details
+
+## Deliverables
+- [ ] NumPy array for first graph approach
+- [ ] NumPy array for second graph approach
+- [ ] Documentation of both approaches

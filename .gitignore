@@ -53,3 +53,7 @@ poetry.lock
 # OS
 .DS_Store
 Thumbs.db
+
+# Project specific
+temp-data/
+arxiv_analysis/data/

@@ -1,0 +1,7 @@
+"""
+Before running this script, make sure to download the required spaCy model:
+    poetry run python -m spacy download en_core_web_md
+
+This will download the medium-sized English model (about 40MB) that includes word vectors,
+required for document similarity analysis.
+"""

@@ -1,0 +1,24 @@
+# Task 1: Building Graph Structures from Statistics Papers
+
+## Objective
+
+The company was provided around 50,000 papers on statistics. Each paper is identified by:
+- Document ID
+- Title
+- Abstract text
+- One or more category tags (from a predefined set)
+
+## First Milestone
+
+We will implement two different approaches to build graphical structures from the paper dataset. The deliverables will include:
+- Serialized NumPy arrays
+- Adjacency matrices for graphs built using both approaches
+
+## Project Importance
+
+The project's overall goals are to:
+1. Derive actionable intelligence from the statistics papers dataset
+2. Identify the most influential papers
+3. Group papers into high-level communities or clusters
+
+This first milestone demonstrates two different approaches to building graphs that will enable this analysis, serving as an essential foundation for the entire project.
