@@ -35,6 +35,14 @@ ENV/
 
 # Neo4j
 neo4j/
+neo4j-community-*/
+*.tar.gz
+data/
+logs/
+import/
+plugins/
+run/
+conf/
 
 # Logs
 *.log
