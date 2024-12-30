@@ -1,6 +1,8 @@
 import os
 import spacy
 import pandas as pd
+from dataloader import DataLoader
+from SpacyEmbModel import SpacyEmbModel
 
 # Set display options to show full content except abstracts
 pd.set_option('display.max_columns', None)
@@ -17,7 +19,11 @@ ABSTRACT_FILE = os.path.join(DATA_DIR, "stat-abstracts.tsv")
 
 # read the data
 
-df = pd.read_csv(ABSTRACT_FILE, sep="\t", header=None)
-df.columns = ["doc_id","title","category","abstract"]
+columns = ["doc_id","title","category","abstract"]
+embedding_model_name = "en_core_web_md"
+emb_model = SpacyEmbModel(embedding_model_name)
+df = DataLoader().load_data(ABSTRACT_FILE,"tsv",columns)
+
+
 
 print(df.head())

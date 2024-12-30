@@ -19,34 +19,69 @@ cp temp-data/data/stat-abstracts.tsv arxiv_analysis/data/
 poetry run python -m spacy download en_core_web_md
 ```
 
-## Data Preparation Steps
+## Project Structure
 
-### 1. Loading and Examining the Data
-
-The data is stored in TSV (Tab-Separated Values) format with the following columns:
-- doc_id: ArXiv document identifier
-- title: Paper title
-- category: Paper categories (semicolon-separated)
-- abstract: Full paper abstract
-
-Example code to load and examine the data (`01data_prep.py`):
-```python
-import pandas as pd
-
-# Configure pandas display
-pd.set_option('display.max_columns', None)
-pd.set_option('display.width', None)
-pd.set_option('display.max_colwidth', 50)  # Truncate long text (abstracts)
-
-# Load the TSV file
-df = pd.read_csv("path/to/stat-abstracts.tsv", sep="\t", header=None)
-df.columns = ["doc_id", "title", "category", "abstract"]
+```
+arxiv_analysis/
+├── src/
+│   ├── __init__.py
+│   ├── embedding_model.py     # Abstract base class for embeddings
+│   ├── SpacyEmbModel.py      # SpaCy implementation
+│   ├── dataloader.py         # Data loading utilities
+│   └── 01data_prep.py        # Main data preparation script
+├── tests/
+│   └── test_embeddings.py    # Unit tests for embedding functionality
+└── data/
+    └── stat-abstracts.tsv    # Dataset (not in git)
 ```
 
+## Implementation Steps
+
+### 1. Data Loading and Examination
+
+```python
+from dataloader import DataLoader
+
+# Load the TSV file with columns
+columns = ["doc_id", "title", "category", "abstract"]
+df = DataLoader().load_data(ABSTRACT_FILE, "tsv", columns)
+```
+
+### 2. Text Embeddings
+
+We use SpaCy's medium English model for generating document embeddings:
+
+```python
+from src.SpacyEmbModel import SpacyEmbModel
+
+# Initialize the embedding model
+emb_model = SpacyEmbModel("en_core_web_md")
+
+# Get embeddings for texts
+embeddings = emb_model.get_embeddings(texts)
+
+# Compute similarity between vectors
+similarity = emb_model.get_similarity(vec1, vec2)
+```
+
+### 3. Running Tests
+
+To run the embedding tests:
+```bash
+cd arxiv_analysis/tests
+poetry run python test_embeddings.py
+```
+
+The tests verify:
+- Correct embedding dimensions (300D for en_core_web_md)
+- Embedding consistency
+- Similarity computation
+- Valid similarity range [-1, 1]
+
 ### Next Steps
-- Process paper categories
-- Create document embeddings using spaCy
-- Build graph structures
+- Process all paper abstracts to create embeddings
+- Build graph structure using similarity scores
 - Generate adjacency matrices
+- Implement graph analysis algorithms
 
 *This document will be updated as we progress through the project.*
