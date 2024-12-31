@@ -57,3 +57,4 @@ Thumbs.db
 # Project specific
 temp-data/
 arxiv_analysis/data/
+arxiv_analysis/results/
